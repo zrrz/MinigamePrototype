@@ -16,6 +16,10 @@ public class SumoCharacterController : NetworkBehaviour {
 	void Start () {
         if (!isLocalPlayer)
             return;
+
+		foreach(Renderer rend in GetComponentsInChildren<Renderer>()) {
+			rend.material.color = Color.blue;
+		}
         
         m_rigidBody = GetComponent<Rigidbody>();
         Debug.Log("Spawning at " + Network.connections.Length);
